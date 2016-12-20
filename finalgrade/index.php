@@ -15,21 +15,31 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The gradebook Apollo user report
+ * The admin report for final grade
  *
- * @package   gradereport_apollo_user
- * @copyright 2007 Moodle Pty Ltd (http://moodle.com)
+ * @package   report_finalgrade
+ * @copyright 2016 onwards Ian Hamilton  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
-require_once('../../config.php');
+require_once(__DIR__ . '/../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
+
+require_login();
 
 $courseLike = optional_param('like', '', PARAM_ALPHA);
 
-echo $OUTPUT->header();
-$strfinalgrade = get_string('finalgrade', 'report_apollo_finalgrade');
+$strfinalgrade = get_string('finalgradetitle', 'report_finalgrade');
+
+$components = array('0' => get_string('all', 'report_finalgrade'));
+$edulevel = array('0' => get_string('all', 'report_finalgrade'));
+$crud = array('0' => get_string('all', 'report_finalgrade'));
+$criteriasection = new report_finalgrade_criteria_form(null, array('components' => $components, 'edulevel' => $edulevel,
+        'crud' => $crud));
+
+$renderer = $PAGE->get_renderer('report_finalgrade');
+echo $renderer->render_course_final_grade($criteriasection);
 
 
 

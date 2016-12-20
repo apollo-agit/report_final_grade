@@ -15,13 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_finalgrade', language 'en'
+ * Version info
  *
- * @package   report_finalgrade
- * @copyright 2016 onwards Ian Hamilton  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    report
+ * @subpackage stats
+ * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Apollo Final Grade';
-$string['finalgradetitle'] = 'View grade report within course wildcard';
-$string['all'] = 'All';
+defined('MOODLE_INTERNAL') || die;
+
+$ADMIN->add('reports', new admin_externalpage('reportfinalgrade', get_string('pluginname', 'report_finalgrade'), "$CFG->wwwroot/report/finalgrade/index.php", 'report/finalgrade:view'));
+
+$settings = null;
+
+

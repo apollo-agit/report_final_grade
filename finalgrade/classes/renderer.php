@@ -15,13 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'report_finalgrade', language 'en'
+ * Final Grade report renderer.
  *
- * @package   report_finalgrade
- * @copyright 2016 onwards Ian Hamilton  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    report_eventlist
+ * @copyright  2016 onwards Ian Hamilton  {@link http://moodle.com}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Apollo Final Grade';
-$string['finalgradetitle'] = 'View grade report within course wildcard';
-$string['all'] = 'All';
+defined('MOODLE_INTERNAL') || die();
+
+
+class report_finalgrade_renderer extends plugin_renderer_base {
+
+	
+    public function render_course_final_grade($form) { 
+    	
+
+    }
+
+
+}
+
+
