@@ -17,13 +17,12 @@
 /**
  * Final Grade report renderer.
  *
- * @package    report_eventlist
+ * @package    report_finalgrade
  * @copyright  2016 onwards Ian Hamilton  {@link http://moodle.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
-
 
 class report_finalgrade_renderer extends plugin_renderer_base {
 
@@ -50,8 +49,12 @@ class report_finalgrade_renderer extends plugin_renderer_base {
 
     public function render_finalgrade_detail($coursefiltername) {
         global $DB;
+        global $SESSION;
         $html = '';
         if($coursefiltername) {
+
+            
+
             $table = new html_table();
               $table->head = array(
                 get_string('headerterm', 'report_finalgrade'),
@@ -79,9 +82,12 @@ class report_finalgrade_renderer extends plugin_renderer_base {
                     $table->data[] = array($split[1], $split[0], $studentRec->username, 
                         $studentRec->finalgrade);
                 }
+
+                $SESSION->gradedata = $table->data;
             }
 
-            $html = html_writer::table($table);
+            $html =  html_writer::link('download.php?dl=true', 'Download');
+            $html .= html_writer::table($table);
 
         }
 

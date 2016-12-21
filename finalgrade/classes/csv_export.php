@@ -15,38 +15,38 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Final Grade report renderer.
- *
- * @package    report_eventlist
- * @copyright  2016 onwards Ian Hamilton  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-defined('MOODLE_INTERNAL') || die();
-
-require_once($CFG->libdir.'/formslib.php');
-
-/**
- * Grade Criteria filter form.
+ * CSV Output formatter 
  *
  * @package   report_finalgrade
  * @copyright 2016 onwards Ian Hamilton  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class report_finalgrade_criteria_form extends moodleform {
 
-	public function definition() {
+require_once($CFG->libdir . '/csvlib.class.php');
 
-        $mform = $this->_form;
-        $mform->disable_form_change_checker();
 
-        $mform->addElement('header', 'displayinfo', get_string('coursefilter', 'report_finalgrade'));
+class report_finalgrade_export_txt {
 
-        $mform->addElement('text', 'coursefiltername', get_string('name', 'report_eventlist'));
-        $mform->setType('coursefiltername', PARAM_NOTAGS);
+	private $plugin = 'txt';
 
-        $this->add_action_buttons(false, 'Search');
+    public $seperator;
+    private $showheaders;
+
+    public function __construct($seperator = ',', $showheaders = true) {
+        $this->seperator = $seperator;
+        $this->showheaders = $showheaders;
     }
+
+    public function print_grades($data, $filename) {
+    	$csvexport = new csv_export_writer($this->seperator);
+    	$csvexport->set_filename($filename);
+
+    	foreach($data as $d) {
+    		$csvexport->add_data($d);
+    	}
+
+    	$csvexport->download_file();
+        exit;
+    }
+
 }
-
-

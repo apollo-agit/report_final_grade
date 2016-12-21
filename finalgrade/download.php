@@ -15,38 +15,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Final Grade report renderer.
- *
- * @package    report_eventlist
- * @copyright  2016 onwards Ian Hamilton  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-defined('MOODLE_INTERNAL') || die();
-
-require_once($CFG->libdir.'/formslib.php');
-
-/**
- * Grade Criteria filter form.
+ * The admin report for final grade
  *
  * @package   report_finalgrade
  * @copyright 2016 onwards Ian Hamilton  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class report_finalgrade_criteria_form extends moodleform {
 
-	public function definition() {
+require_once(__DIR__ . '/../../config.php');
+require_once($CFG->libdir.'/adminlib.php');
+require_once('./classes/csv_export.php');
 
-        $mform = $this->_form;
-        $mform->disable_form_change_checker();
+require_login();
+admin_externalpage_setup('reportfinalgrade');
 
-        $mform->addElement('header', 'displayinfo', get_string('coursefilter', 'report_finalgrade'));
+$download = optional_param('dl', '', PARAM_BOOL);
 
-        $mform->addElement('text', 'coursefiltername', get_string('name', 'report_eventlist'));
-        $mform->setType('coursefiltername', PARAM_NOTAGS);
+$export = new report_finalgrade_export_txt();
+$export->print_grades($SESSION->gradedata, 'finalgrade.txt');
 
-        $this->add_action_buttons(false, 'Search');
-    }
-}
 
 

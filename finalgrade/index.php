@@ -30,10 +30,11 @@ require_login();
 admin_externalpage_setup('reportfinalgrade');
 
 $coursefiltername = optional_param('coursefiltername', '', PARAM_RAW);
-
 $criteriasection = new report_finalgrade_criteria_form(null, array());
 
-$renderer = $PAGE->get_renderer('report_finalgrade');
-echo $renderer->render_course_final_grade($criteriasection, $coursefiltername);
+$renderer = $PAGE->get_renderer('report_finalgrade');echo $renderer->render_course_final_grade($criteriasection, $coursefiltername);
+
+ 
+
 
 
