@@ -17,9 +17,8 @@
 /**
  * Version info
  *
- * @package    report
- * @subpackage stats
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    report_finalgrades
+ * @copyright  2016 onwards Ian Hamilton
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

@@ -39,23 +39,13 @@ class report_finalgrade_criteria_form extends moodleform {
 
         $mform = $this->_form;
         $mform->disable_form_change_checker();
-        $componentarray = $this->_customdata['components'];
-        $edulevelarray = $this->_customdata['edulevel'];
-        $crudarray = $this->_customdata['crud'];
 
-        $mform->addElement('header', 'displayinfo', get_string('filter', 'report_eventlist'));
+        $mform->addElement('header', 'displayinfo', get_string('coursefilter', 'report_finalgrade'));
 
-        $mform->addElement('text', 'eventname', get_string('name', 'report_eventlist'));
-        $mform->setType('eventname', PARAM_RAW);
+        $mform->addElement('text', 'coursefiltername', get_string('name', 'report_eventlist'));
+        $mform->setType('coursefiltername', PARAM_NOTAGS);
 
-        $mform->addElement('select', 'eventcomponent', get_string('component', 'report_eventlist'), $componentarray);
-        $mform->addElement('select', 'eventedulevel', get_string('edulevel', 'report_eventlist'), $edulevelarray);
-        $mform->addElement('select', 'eventcrud', get_string('crud', 'report_eventlist'), $crudarray);
-
-        $buttonarray = array();
-        $buttonarray[] = $mform->createElement('button', 'filterbutton', get_string('filter', 'report_eventlist'));
-        $buttonarray[] = $mform->createElement('button', 'clearbutton', get_string('clear', 'report_eventlist'));
-        $mform->addGroup($buttonarray, 'filterbuttons', '', array(' '), false);
+        $this->add_action_buttons(true, 'Search');
     }
 }
 

@@ -27,19 +27,13 @@ require_once(__DIR__ . '/../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
 
 require_login();
+admin_externalpage_setup('reportfinalgrade');
 
-$courseLike = optional_param('like', '', PARAM_ALPHA);
+$coursefiltername = optional_param('coursefiltername', '', PARAM_RAW);
 
-$strfinalgrade = get_string('finalgradetitle', 'report_finalgrade');
-
-$components = array('0' => get_string('all', 'report_finalgrade'));
-$edulevel = array('0' => get_string('all', 'report_finalgrade'));
-$crud = array('0' => get_string('all', 'report_finalgrade'));
-$criteriasection = new report_finalgrade_criteria_form(null, array('components' => $components, 'edulevel' => $edulevel,
-        'crud' => $crud));
+$criteriasection = new report_finalgrade_criteria_form(null, array());
 
 $renderer = $PAGE->get_renderer('report_finalgrade');
-echo $renderer->render_course_final_grade($criteriasection);
-
+echo $renderer->render_course_final_grade($criteriasection, $coursefiltername);
 
 

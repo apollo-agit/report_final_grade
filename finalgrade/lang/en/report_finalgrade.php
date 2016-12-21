@@ -24,4 +24,8 @@
 
 $string['pluginname'] = 'Apollo Final Grade';
 $string['finalgradetitle'] = 'View grade report within course wildcard';
-$string['all'] = 'All';
+$string['coursefilter'] = 'Course(s) Filter';
+$string['headercrn'] = 'CRN/NRC';
+$string['headerterm'] = 'Term';
+$string['headerbannerid'] = 'Student Banner ID';
+$string['headerfinalgrade'] = 'final grade';
