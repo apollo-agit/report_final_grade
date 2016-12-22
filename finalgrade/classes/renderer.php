@@ -67,9 +67,9 @@ class report_finalgrade_renderer extends plugin_renderer_base {
                 
             foreach($courseRecords as $rec) {                              
 
-                $sql = 'SELECT distinct u.username, g.rawgrade, g.finalgrade FROM moodle.mdl_grade_grades g';
-                $sql .= ' inner join mdl_user u on u.id = g.userid';
-                $sql .= ' inner join mdl_grade_items gi on gi.id = g.itemid';
+                $sql = 'SELECT distinct u.username, g.rawgrade, g.finalgrade FROM {grade_grades} g';
+                $sql .= ' inner join {user} u on u.id = g.userid';
+                $sql .= ' inner join {grade}_items gi on gi.id = g.itemid';
                 $sql .= ' where gi.itemtype = \'course\'';
                 $sql .= ' and gi.courseid = :courseid';
 
