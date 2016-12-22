@@ -14,3 +14,5 @@ This is a standard Moodle Plugin that provides an admin level view to all course
 
 ## Considerations
 1. This plugin does run a LIKE clause, which makes the query powerful. It also forces us to hand work the query. The moodle LIKE api is used, but join considerations are appened. This can be viewed here...[Renderer](finalgrade/classes/renderer.php). 
+2. Do to the length of query execution, the data is stored in the session as part as a hand off to the download endpoint.
+3. The english language file is included. No spanish english is provided.
