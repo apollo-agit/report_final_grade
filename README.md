@@ -14,10 +14,13 @@ Simply drop the report plugin "report_finalgrade" folder into the <moodle>/repor
 ..* User cab searcg by 2134.201601
 * This search is done as a LIKE clause which will bring back any and all data coresponding to the wildard scenario.
 * The feature allows on screen view and a downloadable csv text file
+..* A link to example report can be found here...[Report](docs/finalgrade.txt-20161222_1538-%2C_separated.csv)
 
 ### Menu Nav to Report
 ![Menu Screen Capture](https://github.com/apollo-agit/report_final_grade/blob/master/docs/admin-menu.png)
 
+### Report Screen shot
+![Report Screen Capture](https://github.com/apollo-agit/report_final_grade/blob/master/docs/plugin-capture.png)
 
 ## Considerations
 1. This plugin does run a LIKE clause, which makes the query powerful. It also forces us to hand work the query. The moodle LIKE api is used, but join considerations are appened. This can be viewed here...[Renderer](finalgrade/classes/renderer.php). 
