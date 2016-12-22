@@ -15,6 +15,8 @@ Simply drop the report plugin "report_finalgrade" folder into the <moodle>/repor
 * This search is done as a LIKE clause which will bring back any and all data coresponding to the wildard scenario.
 * The feature allows on screen view and a downloadable csv text file
 
+### Menu Nav to Report
+![Menu Screen Capture][docs/admin_menu.png]
 
 
 ## Considerations
