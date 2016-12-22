@@ -69,7 +69,7 @@ class report_finalgrade_renderer extends plugin_renderer_base {
 
                 $sql = 'SELECT distinct u.username, g.rawgrade, g.finalgrade FROM {grade_grades} g';
                 $sql .= ' inner join {user} u on u.id = g.userid';
-                $sql .= ' inner join {grade}_items gi on gi.id = g.itemid';
+                $sql .= ' inner join {grade_items} gi on gi.id = g.itemid';
                 $sql .= ' where gi.itemtype = \'course\'';
                 $sql .= ' and gi.courseid = :courseid';
 
