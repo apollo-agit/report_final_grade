@@ -51,9 +51,7 @@ class report_finalgrade_renderer extends plugin_renderer_base {
         global $DB;
         global $SESSION;
         $html = '';
-        if($coursefiltername) {
-
-            
+        if($coursefiltername) {            
 
             $table = new html_table();
               $table->head = array(
@@ -86,7 +84,8 @@ class report_finalgrade_renderer extends plugin_renderer_base {
                 $SESSION->gradedata = $table->data;
             }
 
-            $html =  html_writer::link('download.php?dl=true', 'Download');
+            $url = new moodle_url('pix/download.png');
+            $html =  html_writer::link('download.php?dl=true', html_writer::empty_tag('img', array('src' => $url, 'alt' => get_string('download', 'report_finalgrade'))));
             $html .= html_writer::table($table);
 
         }

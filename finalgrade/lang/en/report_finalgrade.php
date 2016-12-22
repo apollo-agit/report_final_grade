@@ -29,3 +29,4 @@ $string['headercrn'] = 'CRN/NRC';
 $string['headerterm'] = 'Term';
 $string['headerbannerid'] = 'Student Banner ID';
 $string['headerfinalgrade'] = 'final grade';
+$string['download'] = 'Download';
