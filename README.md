@@ -16,7 +16,7 @@ Simply drop the report plugin "report_finalgrade" folder into the <moodle>/repor
 * The feature allows on screen view and a downloadable csv text file
 
 ### Menu Nav to Report
-![Menu Screen Capture](docs/admin_menu.png)
+![Menu Screen Capture](https://github.com/apollo-agit/report_final_grade/blob/master/docs/admin-menu.png)
 
 
 ## Considerations
